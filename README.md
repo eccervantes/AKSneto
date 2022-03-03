@@ -90,3 +90,4 @@ It is similar to a deployment but including a volumen to make the data persisten
 - obtaining information about your pods
   - `kubectl get pod -o yaml`
    
+<!--- this is a comment>
