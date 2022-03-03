@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: epam-deployment
+spec:
+  selector:
+    matchLabels:
+      app: epam-deployment
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: epam-deployment
+    spec:
+      containers:
+      - name: epam-deployment
+        image: eccervantes/linkedin:latest
+        env:
+        - name: CRICRI
+          value: "alla en la fuente Habia un chorrito"
+        - name: VARHEREDADA
+          valueFrom:
+            fieldRef:
+              fieldPath: status.hostIP
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80

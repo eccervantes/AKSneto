@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginxibm
+  labels:
+    name: nginxibm
+
+spec:
+  containers:
+  - name: nginxibm
+    image: eccervantes/linkedin:latest
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    ports:
+      - containerPort: 80
