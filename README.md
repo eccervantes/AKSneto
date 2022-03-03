@@ -84,7 +84,7 @@ use a manual run of the image.
 
     - `kubectl apply -f 5Ubuntupod.yaml`
     - `kubectl run ubuntu --image ubuntu -- sleep infinity`
-  Make sure you have the iputils-ping and curl package install 
+    Make sure you have the iputils-ping and curl package install 
 ---
 
 - **Cluster IP**
