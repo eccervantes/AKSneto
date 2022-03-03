@@ -82,9 +82,12 @@ you can use the depoyment file "5Ubuntupod.yaml" or
 
 use a manual run of the image.
 
-    - `kubectl apply -f 5Ubuntupod.yaml`
-    - `kubectl run ubuntu --image ubuntu -- sleep infinity`
-    Make sure you have the iputils-ping and curl package install 
+    `kubectl apply -f 5Ubuntupod.yaml`
+    `kubectl run ubuntu --image ubuntu -- sleep infinity`
+    
+    Maker sure you have curl and iputils-ping package installed
+
+
 ---
 
 - **Cluster IP**
@@ -101,6 +104,17 @@ use a manual run of the image.
   `kubectl describe svc hello | grep Endpoints`
 ---
 - **Node Port**
+
+This type of service redirects an specific port on all the nodes to properly get the endpoints pods. AKS does not creates a public ip. 
+
+you can test this type of svc by executing the following command:
+
+`kubectl apply -f 7hello-deployment-svc-nodePort.yaml`
+
+enter to the ubuntu pod and do a curl to the nodeport service ip:port
+
+**publickIP:nodeport > nodeip:targetport: > clusternodesips:targetport > podsip:port**
+
 ---
 - **load Balancer**
 ---
