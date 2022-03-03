@@ -76,7 +76,29 @@ It is similar to a deployment but including a volumen to make the data persisten
 ---
 ## **Services**
 
+for this section we will create a ubuntu pod that could help us troubleshoot how the differente type of services are working. 
+
+you can use the depoyment file "5Ubuntupod.yaml" or
+
+use a manual run of the image.
+
+    - `kubectl apply -f 5Ubuntupod.yaml`
+    - `kubectl run ubuntu --image ubuntu -- sleep infinity`
+  Make sure you have the iputils-ping and curl package install 
+---
+
 - **Cluster IP**
+  
+  We will use the following file to create a depoyment that already contains a service cluster ip. 
+
+
+  `kubectl apply -f 6hello-deployment-svs-clusterIP.yaml`
+  
+  We can verify that the endpoints of the svc are the pods with their respective port defined. 
+
+  `kubectl get all`
+
+  `kubectl describe svc hello | grep Endpoints`
 ---
 - **Node Port**
 ---
