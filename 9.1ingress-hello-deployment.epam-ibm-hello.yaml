@@ -1,0 +1,33 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: neto-aks
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/add-base-url: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /ibm
+        pathType: Prefix
+        backend:
+          service:
+            name: ibm
+            port:
+              number: 80
+      - path: /epam
+        pathType: Prefix
+        backend:
+          service:
+            name: epam
+            port:
+              number: 80
+      - path: /hello
+        pathType: Prefix
+        backend:
+          service:
+            name: hello
+            port:
+              number: 8080

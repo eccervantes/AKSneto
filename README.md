@@ -117,6 +117,17 @@ enter to the ubuntu pod and do a curl to the nodeport service ip:port
 
 ---
 - **load Balancer**
+
+this type os service will create a load balancer with a public ip adress and an open port to redirec to the pods with the specific role "hello"
+
+`kubectl apply -f 8hello-deployment.svc-loadbalancer.yaml `
+
+`kubectl get all -o wide`
+
+`curl <LoadBalancerExternalIP>:8080`
+
+
+
 ---
 ## Details on the pods yamls
 
